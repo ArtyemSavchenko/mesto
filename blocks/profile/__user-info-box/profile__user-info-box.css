@@ -1,0 +1,16 @@
+.profile__user-info-box {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  row-gap: 8px;
+  column-gap: 10px;
+  align-items: center;
+  transform: translateX(18px);
+  margin-bottom: 36px;
+}
+
+@media (min-width: 604px) {
+  .profile__user-info-box {
+    margin-bottom: 0;
+    transform: translateX(0);
+  }
+}

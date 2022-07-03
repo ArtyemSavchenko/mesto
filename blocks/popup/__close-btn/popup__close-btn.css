@@ -1,0 +1,28 @@
+.popup__close-btn {
+  background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M20 18L12 10L20 2L18 0L10 8L2 0L0 2L8 10L0 18L2 20L10 12L18 20L20 18Z" fill="white"/%3E%3C/svg%3E ');
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity .2s linear;
+  justify-self: end;
+  transform: translate(0, -16px);
+}
+
+.popup__close-btn:hover {
+  opacity: .6;
+}
+
+@media (min-width: 600px) {
+  .popup__close-btn {
+    width: 32px;
+    height: 32px;
+    background-size: 32px 32px;
+    transform: translate(calc(100% + 8px), -8px);
+  }
+}

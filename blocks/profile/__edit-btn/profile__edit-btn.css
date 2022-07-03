@@ -1,0 +1,17 @@
+.profile__edit-btn {
+  background-image: url('data:image/svg+xml,%3Csvg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M10 1.32827L2.60377 8.7666L1.28302 7.41936L8.66038 0L10 1.32827ZM0 10L1.96226 9.41177L0.584906 8.08349L0 10Z" fill="white"/%3E%3C/svg%3E%0A');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 8px 8px;
+  width: 18px;
+  height: 18px;
+  background-color: #000;
+  box-sizing: border-box;
+  border: 1px #fff solid;
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+
+.profile__edit-btn:hover {
+  opacity: .6;
+}

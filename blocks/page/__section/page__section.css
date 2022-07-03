@@ -1,4 +1,14 @@
 .page__section {
   max-width: 880px;
   margin: 0 auto;
+  box-sizing: border-box;
+  padding-left: 19px;
+  padding-right: 19px;
+}
+
+@media (min-width: 918px) {
+  .page__section {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

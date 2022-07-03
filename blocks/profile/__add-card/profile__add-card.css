@@ -1,0 +1,25 @@
+.profile__add-card {
+  background-image: url('data:image/svg+xml,%3Csvg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M16 7.11111H8.88889V0H7.11111V7.11111H0V8.88889H7.11111V16H8.88889V8.88889H16V7.11111Z" fill="white"/%3E%3C/svg%3E%0A');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-color: #000;
+  box-sizing: border-box;
+  height: 50px;
+  width: 282px;
+  border: 2px #fff solid;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity .2s linear;
+}
+
+.profile__add-card:hover {
+  opacity: .6;
+}
+
+@media (min-width: 604px) {
+  .profile__add-card {
+    width: 150px;
+  }
+}
