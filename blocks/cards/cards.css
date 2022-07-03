@@ -9,5 +9,6 @@
 @media (min-width: 768px) {
   .cards {
     gap: 17px;
+    padding-top: 50px;
   }
 }

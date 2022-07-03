@@ -12,5 +12,6 @@
   .profile__user-info-box {
     margin-bottom: 0;
     transform: translateX(0);
+    column-gap: 18px;
   }
 }

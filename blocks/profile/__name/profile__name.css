@@ -14,5 +14,7 @@
 @media (min-width: 604px) {
   .profile__name {
     text-align: left;
+    font-size: 42px;
+    line-height: 1.15;
   }
 }
