@@ -1,4 +1,4 @@
-# [Местоъ](https://artyemsavchenko.github.io/mesto/)
+# [Место](https://artyemsavchenko.github.io/mesto/)
 ### Учебный проект
 
 Изучал основы JS:
