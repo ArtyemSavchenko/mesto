@@ -11,7 +11,7 @@
 }
 
 .popup__input:focus {
-  border-bottom: 1px solid DodgerBlue;
+  border-bottom: 1px solid dodgerblue;
 }
 
 .popup__input:last-of-type {
