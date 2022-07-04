@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 
-@media (min-width: 604px) {
+@media (min-width: 768px) {
   .profile__name {
     text-align: left;
     font-size: 42px;

@@ -6,7 +6,7 @@
   margin-bottom: 26px;
 }
 
-@media (min-width: 604px) {
+@media (min-width: 768px) {
   .profile__user-pic {
     margin-bottom: 0;
   }

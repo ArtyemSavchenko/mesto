@@ -8,7 +8,7 @@
   padding-left: 28px;
 }
 
-@media (min-width: 604px) {
+@media (min-width: 768px) {
   .profile__user-info-box {
     margin-bottom: 0;
     column-gap: 18px;

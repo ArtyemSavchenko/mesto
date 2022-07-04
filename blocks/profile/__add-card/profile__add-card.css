@@ -18,7 +18,7 @@
   opacity: .6;
 }
 
-@media (min-width: 604px) {
+@media (min-width: 768px) {
   .profile__add-card {
     width: 150px;
   }

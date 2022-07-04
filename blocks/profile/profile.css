@@ -5,7 +5,7 @@
   padding-top: 42px;
 }
 
-@media (min-width: 604px) {
+@media (min-width: 768px) {
   .profile {
     grid-template-columns: min-content 1fr min-content;
     justify-items: start;
