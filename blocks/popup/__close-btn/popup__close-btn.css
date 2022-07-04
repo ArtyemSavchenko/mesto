@@ -11,7 +11,9 @@
   padding: 0;
   transition: opacity .2s linear;
   justify-self: end;
-  transform: translate(0, -16px);
+  position: absolute;
+  top: -36px;
+  right: 0;
 }
 
 .popup__close-btn:hover {
@@ -23,6 +25,7 @@
     width: 32px;
     height: 32px;
     background-size: 32px 32px;
-    transform: translate(calc(100% + 8px), -8px);
+    right: -40px;
+    top: -40px;
   }
 }

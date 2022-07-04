@@ -1,24 +1,50 @@
 const profilePopup = document.querySelector('.popup');
+const popupWindow = document.querySelector('.popup__window'); // для закрытия попапа при клике по пустой области
 const openProfileBtn = document.querySelector('.profile__edit-btn');
-const closeProfileBtn = document.querySelector('.popup__close-btn');
-const submitProfileBtn = document.querySelector('.popup__submit-btn');
+const closePopupBtn = document.querySelector('.popup__close-btn');
+const userForm = document.querySelector('.popup__user-form');
 
 const inputName = document.querySelector('.popup__input_type_name');
+const profileName = document.querySelector('.profile__name');
 const inputAbout = document.querySelector('.popup__input_type_about');
+const profileAbout = document.querySelector('.profile__about');
+
+
+function openClosePopup (popup) {
+  popup.classList.toggle('popup_active');
+}
 
 openProfileBtn.addEventListener('click', () => {
-  inputName.value = document.querySelector('.profile__name').textContent;
-  inputAbout.value = document.querySelector('.profile__about').textContent;
-  profilePopup.classList.toggle('popup_active');
+  inputName.value = profileName.textContent;
+  inputAbout.value = profileAbout.textContent;
+  openClosePopup(profilePopup);
 });
 
-closeProfileBtn.addEventListener('click', () => {
-  profilePopup.classList.toggle('popup_active');
+closePopupBtn.addEventListener('click', () => {
+  openClosePopup(profilePopup);
+});
+profilePopup.addEventListener('click', () => {
+  openClosePopup(profilePopup);
+});
+popupWindow.addEventListener('click', (evt) => {
+  evt.stopPropagation()
 });
 
-submitProfileBtn.addEventListener('click', (evt) => {
+userForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  document.querySelector('.profile__name').textContent = inputName.value;
-  document.querySelector('.profile__about').textContent = inputAbout.value;
-  profilePopup.classList.toggle('popup_active');
+  profileName.textContent = inputName.value;
+  profileAbout.textContent = inputAbout.value;
+  openClosePopup(profilePopup);
 });
+
+//like mechanic
+const likeBtns = document.querySelectorAll('.card__like');
+
+function toggleLike () {
+  this.classList.toggle('card__like_active');
+}
+
+likeBtns.forEach(btn => {
+  btn.addEventListener('click', toggleLike);
+});
+//---

@@ -1,0 +1,14 @@
+.footer__text {
+  margin: 0;
+  color: #545454;
+  font-family: 'Inter', 'Verdana', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+@media (min-width: 600px) {
+  .footer__text {
+    font-size: 18px;
+  }
+}

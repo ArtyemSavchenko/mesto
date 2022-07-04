@@ -5,7 +5,7 @@
   background-size: 8px 8px;
   width: 18px;
   height: 18px;
-  background-color: #000;
+  background-color: transparent;
   box-sizing: border-box;
   border: 1px #fff solid;
   transition: opacity .2s linear;

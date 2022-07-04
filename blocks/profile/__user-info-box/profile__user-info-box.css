@@ -4,14 +4,13 @@
   row-gap: 8px;
   column-gap: 10px;
   align-items: center;
-  transform: translateX(18px);
   margin-bottom: 36px;
+  padding-left: 28px;
 }
 
 @media (min-width: 604px) {
   .profile__user-info-box {
     margin-bottom: 0;
-    transform: translateX(0);
     column-gap: 18px;
   }
 }

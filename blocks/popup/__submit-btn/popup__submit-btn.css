@@ -14,3 +14,9 @@
 .popup__submit-btn:hover {
   opacity: 0.8;
 }
+
+@media (min-width: 600px) {
+  .popup__submit-btn {
+    font-size: 18px;
+  }
+}

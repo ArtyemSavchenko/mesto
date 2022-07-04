@@ -11,7 +11,7 @@
 }
 
 .popup__input:focus {
-  border-bottom: 1px solid steelblue;
+  border-bottom: 1px solid DodgerBlue;
 }
 
 .popup__input:last-of-type {
@@ -23,6 +23,9 @@
 }
 
 @media (min-width: 600px) {
+  .popup__input {
+    padding-bottom: 9px;
+  }
   .popup__input:last-of-type {
     margin-bottom: 48px;
   }
