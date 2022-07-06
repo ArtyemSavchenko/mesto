@@ -28,3 +28,12 @@ userForm.addEventListener('submit', (evt) => {
   profileAbout.textContent = inputAbout.value;
   openClosePopup(profilePopup);
 });
+
+//like mechanic
+const cardsSection = document.querySelector('.cards');
+function like (evt) {
+  if (evt.target.classList.contains('card__like'))
+    evt.target.classList.toggle('card__like_active');
+}
+cardsSection.addEventListener('click', like);
+// ---
