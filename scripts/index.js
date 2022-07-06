@@ -28,3 +28,13 @@ userForm.addEventListener('submit', (evt) => {
   profileAbout.textContent = inputAbout.value;
   openClosePopup(profilePopup);
 });
+
+//delete card
+const cardsSection = document.querySelector('.cards');
+function deleteCard(evt) {
+  if (evt.target.classList.contains('card__del')) {
+    evt.target.closest('.card').remove();
+  }
+}
+cardsSection.addEventListener('click', deleteCard);
+// ---
