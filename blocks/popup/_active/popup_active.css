@@ -1,20 +1,6 @@
-@keyframes open-popup {
-  0% {
-    display: none;
-    opacity: 0;
-  }
-  1% {
-    display: grid;
-    opacity: 0;
-  }
-  100% {
-    display: grid;
-    opacity: 1;
-  }
-}
-
 .popup_active {
-  display: grid;
-  animation: open-popup .2s linear;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity .3s;
 }
 
