@@ -29,11 +29,19 @@ userForm.addEventListener('submit', (evt) => {
   openClosePopup(profilePopup);
 });
 
-//like mechanic
 const cardsSection = document.querySelector('.cards');
+//like mechanic
 function like (evt) {
   if (evt.target.classList.contains('card__like'))
     evt.target.classList.toggle('card__like_active');
 }
 cardsSection.addEventListener('click', like);
+
+//delete card
+function deleteCard(evt) {
+  if (evt.target.classList.contains('card__del')) {
+    evt.target.closest('.card').remove();
+  }
+}
+cardsSection.addEventListener('click', deleteCard);
 // ---
