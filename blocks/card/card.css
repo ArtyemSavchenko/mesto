@@ -6,7 +6,7 @@
   overflow: hidden;
   display: grid;
   font-size: 24px;
-  grid-template-columns: 1fr min-content;
-  grid-template-rows: min-content 3.3em;
+  grid-template-columns: auto min-content;
+  grid-template-rows: auto 80px;
   align-items: center;
 }
