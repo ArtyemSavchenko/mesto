@@ -110,8 +110,8 @@
       <div class="popup">
         <div class="popup__window">
           <h3 class="popup__title">Редактировать профиль</h3>
-          <form class="popup__user-form" name="user-form">
-            <input type="text" class="popup__input popup__input_type_name" name="input-name" placeholder="Имя">
+          <form class="popup__form" name="user-form">
+            <input type="text" class="popup__input popup__input_type_name" name="input-name" placeholder="Имя" required>
             <input type="text" class="popup__input popup__input_type_about" name="input-about" placeholder="О себе">
             <button class="popup__submit-btn" type="submit">Сохранить</button>
           </form>
@@ -119,13 +119,13 @@
         </div>
       </div>
     </template>
-    <template id="place">
+    <template id="card-popup">
       <div class="popup">
         <div class="popup__window">
           <h3 class="popup__title">Новое место</h3>
-          <form class="popup__place-form" name="place-form">
-            <input type="text" class="popup__input popup__input_type_place-name" name="input-place-name" placeholder="Название">
-            <input type="text" class="popup__input popup__input_type_place-url" name="input-place-url" placeholder="Ссылка на картинку">
+          <form class="popup__form" name="card-form">
+            <input type="text" class="popup__input popup__input_type_card-name" name="input-card-name" placeholder="Название" required>
+            <input type="url" class="popup__input popup__input_type_card-url" name="input-card-url" placeholder="Ссылка на картинку" required>
             <button class="popup__submit-btn" type="submit">Создать</button>
           </form>
           <button class="popup__close-btn" type="button" aria-label="Закрыть форму."></button>
@@ -134,8 +134,8 @@
     </template>
     <template id="card">
       <article class="card">
-        <img src="./images/img2.jpg" alt="" class="card__img">
-        <h2 class="card__title">Карелия</h2>
+        <img src="./" alt="" class="card__img">
+        <h2 class="card__title"></h2>
         <button class="card__like" type="button" aria-label="Нравится."></button>
         <button class="card__del" type="button" aria-label="Удалить"></button>
       </article>
