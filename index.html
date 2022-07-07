@@ -33,45 +33,69 @@
             <button class="popup__submit-btn" type="submit" aria-label="Сохранить изменения.">Сохранить</button>
           </form>
           <button class="popup__close-btn" type="button" aria-label="Закрыть форму."></button>
-        </div>
+        </div>aria-label
       </div>
 
       <section class="cards page__section" aria-label="Места.">
         <article class="card">
-          <img src="./images/card__ruskeala.webp" alt="" class="card__img">
+          <img src="./images/img1.png" alt="" class="card__img">
           <h2 class="card__title">Рускеала</h2>
           <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" +aria-label="Удалить"></button>
+          <button class="card__del" type="button" aria-label="Удалить"></button>
         </article>
         <article class="card">
-          <img src="./images/card__arkhyz.webp" alt="" class="card__img">
+          <img src="./images/img2.jpg" alt="" class="card__img">
+          <h2 class="card__title">Рускеала</h2>
+          <button class="card__like" type="button" aria-label="Нравится."></button>
+          <button class="card__del" type="button" aria-label="Удалить"></button>
+        </article>
+        <article class="card">
+          <img src="./images/img1.png" alt="" class="card__img">
+          <h2 class="card__title">Рускеала</h2>
+          <button class="card__like" type="button" aria-label="Нравится."></button>
+          <button class="card__del" type="button" aria-label="Удалить"></button>
+        </article>
+        <article class="card">
+          <img src="./images/img1.png" alt="" class="card__img">
           <h2 class="card__title">Архыз</h2>
           <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" +aria-label="Удалить"></button>
+          <button class="card__del" type="button" aria-label="Удалить"></button>
         </article>
         <article class="card">
-          <img src="./images/card__dombay.webp" alt="" class="card__img">
+          <img src="./images/img1.png" alt="" class="card__img">
+          <h2 class="card__title">Архыз</h2>
+          <button class="card__like" type="button" aria-label="Нравится."></button>
+          <button class="card__del" type="button" aria-label="Удалить"></button>
+        </article>
+        <article class="card">
+          <img src="./images/img1.png" alt="" class="card__img">
+          <h2 class="card__title">Архыз</h2>
+          <button class="card__like" type="button" aria-label="Нравится."></button>
+          <button class="card__del" type="button" aria-label="Удалить"></button>
+        </article>
+        <article class="card">
+          <img src="./images/img2.jpg" alt="" class="card__img">
           <h2 class="card__title">Домбай</h2>
           <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" +aria-label="Удалить"></button>
+          <button class="card__del" type="button" aria-label="Удалить"></button>
         </article>
         <article class="card">
-          <img src="./images/card__karelia.webp" alt="" class="card__img">
+          <img src="./images/img2.jpg" alt="" class="card__img">
           <h2 class="card__title">Карелия</h2>
           <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" +aria-label="Удалить"></button>
+          <button class="card__del" type="button" aria-label="Удалить"></button>
         </article>
         <article class="card">
-          <img src="./images/card__taganrog.webp" alt="" class="card__img">
+          <img src="./images/img2.jpg" alt="" class="card__img">
           <h2 class="card__title">Таганрог</h2>
           <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" +aria-label="Удалить"></button>
+          <button class="card__del" type="button" aria-label="Удалить"></button>
         </article>
         <article class="card">
           <img src="./images/card__teberda.webp" alt="" class="card__img">
           <h2 class="card__title">Теберда</h2>
           <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" +aria-label="Удалить"></button>
+          <button class="card__del" type="button" aria-label="Удалить"></button>
         </article>
       </section>
     </main>
@@ -81,6 +105,18 @@
         © 2022 Mesto Russia
       </p>
     </footer>
+
+    <template id="card-image">
+      <div class="popup">
+        <div class="card-image">
+          <figure class="card-image__box">
+            <img class="card-image__img" src="./" alt="">
+            <figcaption class="card-image__caption">Fig Caption</figcaption>
+          </figure>
+          <button class="popup__close-btn" type="button" aria-label="Закрыть форму."></button>
+        </div>
+      </div>
+    </template>
 
     <script src="./scripts/index.js"></script>
 </body>

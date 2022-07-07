@@ -33,5 +33,10 @@
 @import url(../blocks/popup/__submit-btn/popup__submit-btn.css);
 @import url(../blocks/popup/__close-btn/popup__close-btn.css);
 
+@import url(../blocks/card-image/card-image.css);
+@import url(../blocks/card-image/__box/card-image__box.css);
+@import url(../blocks/card-image/__img/card-image__img.css);
+@import url(../blocks/card-image/__caption/card-image__caption.css);
+
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
