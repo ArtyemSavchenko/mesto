@@ -1,17 +1,3 @@
-//CLICK TEST
-// document.querySelector('.page').addEventListener('click', evt => {
-//   console.log(evt.type);
-//   console.log(evt.target);
-// });
-// document.querySelector('.page').addEventListener('mousedown', evt => {
-//   console.log(evt.type);
-//   console.log(evt.target);
-// });
-// document.querySelector('.page').addEventListener('mouseup', evt => {
-//   console.log(evt.type);
-//   console.log(evt.target);
-// });
-
 window.addEventListener('keyup', evt => {
   if(evt.key === 'Escape') {
     const popup = document.querySelector('.popup');
@@ -22,7 +8,6 @@ window.addEventListener('keyup', evt => {
 
 function openPopup (popup) {
   setTimeout(() => popup.classList.add('popup_active'), 0);
-  // popup.classList.add('popup_active');
 }
 
 function removePopup (popup) {
@@ -32,14 +17,14 @@ function removePopup (popup) {
 
 function closePopup (evt) {
   if (evt.target.classList.contains('popup__close-btn')) {
-    // evt.stopPropagation();
+    evt.stopPropagation();
     const btnClose = evt.target;
     const popup = btnClose.closest('.popup');
     removePopup(popup);
   }
-  // if (evt.target.classList.contains('popup')) {
-  //   removePopup(evt.target);
-  // }
+  if (evt.target.classList.contains('popup')) {
+    removePopup(evt.target);
+  }
 }
 
 //PROFILE
@@ -55,7 +40,7 @@ function openProfile () {
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
   profilePopup.querySelector('.popup__close-btn').addEventListener('click', closePopup);
-  // profilePopup.addEventListener('click', closePopup);
+  profilePopup.addEventListener('click', closePopup);
 
   const userForm = profilePopup.querySelector('.popup__form');
   userForm.addEventListener('submit', (evt) => {
@@ -129,6 +114,7 @@ function openCardPopup () {
   form.addEventListener('submit', addCard);
 
   cardPopup.querySelector('.popup__close-btn').addEventListener('click', closePopup);
+  cardPopup.addEventListener('click', closePopup);
 
   const page = openProfileBtn.closest('.page');
   page.append(cardPopup);
