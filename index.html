@@ -26,42 +26,7 @@
       </section>
 
       <section class="cards page__section" aria-label="Места.">
-        <article class="card">
-          <img src="./images/card-sovy.webp" alt="" class="card__img">
-          <h2 class="card__title">Совы во дворе</h2>
-          <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" aria-label="Удалить"></button>
-        </article>
-        <article class="card">
-          <img src="./images/card-arkhyz.webp" alt="" class="card__img">
-          <h2 class="card__title">Архыз</h2>
-          <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" aria-label="Удалить"></button>
-        </article>
-        <article class="card">
-          <img src="./images/card-dombay.webp" alt="" class="card__img">
-          <h2 class="card__title">Домбай</h2>
-          <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" aria-label="Удалить"></button>
-        </article>
-        <article class="card">
-          <img src="./images/card-kareliya.webp" alt="" class="card__img">
-          <h2 class="card__title">Карелия</h2>
-          <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" aria-label="Удалить"></button>
-        </article>
-        <article class="card">
-          <img src="./images/card-ruskeala.webp" alt="" class="card__img">
-          <h2 class="card__title">Рускеала</h2>
-          <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" aria-label="Удалить"></button>
-        </article>
-        <article class="card">
-          <img src="./images/card-teberda.webp" alt="" class="card__img">
-          <h2 class="card__title">Теберда</h2>
-          <button class="card__like" type="button" aria-label="Нравится."></button>
-          <button class="card__del" type="button" aria-label="Удалить"></button>
-        </article>
+
       </section>
     </main>
 
@@ -86,12 +51,12 @@
       <div class="popup">
         <div class="popup__window">
           <h3 class="popup__title">Редактировать профиль</h3>
-          <form class="popup__form" name="user-form">
+          <form class="popup__form" name="user-form" autocomplete="off">
             <input type="text" class="popup__input popup__input_type_name" name="input-name" placeholder="Имя" required>
             <input type="text" class="popup__input popup__input_type_about" name="input-about" placeholder="О себе">
             <button class="popup__submit-btn" type="submit">Сохранить</button>
           </form>
-          <button class="popup__close-btn" type="button" aria-label="Закрыть форму."></button>
+          <button class="popup__close-btn" type="button" aria-label="Закрыть форму.">1</button>
         </div>
       </div>
     </template>
@@ -99,7 +64,7 @@
       <div class="popup">
         <div class="popup__window">
           <h3 class="popup__title">Новое место</h3>
-          <form class="popup__form" name="card-form">
+          <form class="popup__form" name="card-form" autocomplete="off">
             <input type="text" class="popup__input popup__input_type_card-name" name="input-card-name" placeholder="Название" required>
             <input type="url" class="popup__input popup__input_type_card-url" name="input-card-url" placeholder="Ссылка на картинку" required>
             <button class="popup__submit-btn" type="submit">Создать</button>
