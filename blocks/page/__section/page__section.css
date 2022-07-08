@@ -1,5 +1,4 @@
 .page__section {
-  max-width: 880px;
   margin: 0 auto;
   box-sizing: border-box;
   padding-left: 19px;
@@ -10,5 +9,6 @@
   .page__section {
     padding-left: 0;
     padding-right: 0;
+    max-width: 880px;
   }
 }
