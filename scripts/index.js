@@ -55,9 +55,9 @@ popupProfile.addEventListener('click', () => closePopup(popupProfile));
 popupProfile.querySelector('.popup__window').addEventListener('click', evt => evt.stopPropagation());
 
 btnAddCard.addEventListener('click', () => {
-  openPopup(popupAddCard);
   popupCardName.value = '';
   popupCardUrl.value = '';
+  openPopup(popupAddCard);
 });
 popupAddCard.querySelector('.popup__close-btn').addEventListener('click', evt => {
   evt.stopPropagation();
@@ -79,7 +79,6 @@ popupImg.querySelector('.popup__close-btn').addEventListener('click', evt => {
 popupImg.addEventListener('click', () => closePopup(popupImg));
 popupImg.querySelector('.card-image__img').addEventListener('click', evt => evt.stopPropagation());
 popupImg.querySelector('.card-image__caption').addEventListener('click', evt => evt.stopPropagation());
-
 
 function likeCard (card) {
   card.querySelector('.card__like').classList.toggle('card__like_active');
@@ -108,7 +107,4 @@ sectionCards.addEventListener('click', evt => {
   }
 });
 
-function loadPage () {
-  samplesCards.forEach(el => addNewCard(createCard(el.title, el.src)));
-}
-loadPage();
+samplesCards.forEach(el => addNewCard(createCard(el.title, el.src)));
