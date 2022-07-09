@@ -108,22 +108,6 @@ sectionCards.addEventListener('click', evt => {
   }
 });
 
-const popups = [
-  popupProfile,
-  popupAddCard,
-  popupImg
-]
-window.addEventListener('keyup', evt => {
-  if (evt.key === 'Escape') {
-    for (i = 0; i < popups.length; i++) {
-      if (popups[i].classList.contains('popup_active')) {
-        closePopup(popups[i]);
-        break;
-      }
-    }
-  }
-});
-
 function loadPage () {
   samplesCards.forEach(el => addNewCard(createCard(el.title, el.src)));
 }
