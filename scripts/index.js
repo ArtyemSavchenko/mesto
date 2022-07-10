@@ -13,11 +13,7 @@ const popupImgPic = popupImg.querySelector('.card-image__img');
 const popupImgCaption = popupImg.querySelector('.card-image__caption');
 const sectionCards = document.querySelector('.cards');
 const cardTemplate = document.querySelector('#card').content;
-const popups = [
-  popupProfile,
-  popupAddCard,
-  popupImg
-]
+const popups = document.querySelectorAll('.popup');
 
 popups.forEach(popup => {
   popup.addEventListener('click', (evt) => {
@@ -32,7 +28,7 @@ function createCard(title, src) {
   const cardImg = card.querySelector('.card__img');
   cardImg.src = src;
   cardImg.alt = title;
-  cardImg.addEventListener('click', () => openPopupImg(card));
+  cardImg.addEventListener('click', () => openPopupImg(title, src));
   card.querySelector('.card__like').addEventListener('click', () => likeCard(card));
   card.querySelector('.card__del').addEventListener('click', () => delCard(card));
   return card;
@@ -97,10 +93,10 @@ function likeCard (card) {
 function delCard (card) {
   card.remove();
 }
-function openPopupImg (card) {
-  popupImgPic.src = card.querySelector('.card__img').src;
-  popupImgPic.alt = card.querySelector('.card__title').textContent;
-  popupImgCaption.textContent = card.querySelector('.card__title').textContent;
+function openPopupImg (title, src) {
+  popupImgPic.src = src;
+  popupImgPic.alt = title;
+  popupImgCaption.textContent = title;
   openPopup(popupImg);
 }
 
