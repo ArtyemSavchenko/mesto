@@ -25,7 +25,6 @@ popups.forEach(popup => {
       closePopup(popup);
   });
 });
-//evt.target === evt.currentTarget - 🔥сам бы не додумался до такого изящного решения, спасибо
 
 function createCard(title, src) {
   const card = cardTemplate.querySelector('.card').cloneNode(true);
@@ -46,11 +45,24 @@ function delCard(card) {
   card.remove();
 }
 
+function closePopupHandler (evt) {
+  if (evt.key === 'Escape') {
+    for (let i = 0; i < popups.length; i++) {
+      if (popups[i].classList.contains('popup_active')) {
+        closePopup(popups[i]);
+        return;
+      }
+    }
+  }
+}
+
 function openPopup (popup) {
   popup.classList.add('popup_active');
+  window.addEventListener('keyup', closePopupHandler);
 }
 function closePopup (popup) {
   popup.classList.remove('popup_active');
+  window.removeEventListener('keyup', closePopupHandler);
 }
 
 btnOpenProfile.addEventListener('click', () => {
