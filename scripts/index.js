@@ -22,7 +22,7 @@ popups.forEach(popup => {
   });
 });
 
-function createCard(title, src) {
+const createCard = (title, src) => {
   const card = cardTemplate.querySelector('.card').cloneNode(true);
   card.querySelector('.card__title').textContent = title;
   const cardImg = card.querySelector('.card__img');
@@ -34,14 +34,14 @@ function createCard(title, src) {
   return card;
 }
 
-function addNewCard(card) {
+const addNewCard = (card) => {
   sectionCards.prepend(card);
 }
-function delCard(card) {
+const delCard = (card) => {
   card.remove();
 }
 
-function closePopupHandler (evt) {
+const closePopupHandler = (evt) => {
   if (evt.key === 'Escape') {
     for (let i = 0; i < popups.length; i++) {
       if (popups[i].classList.contains('popup_active')) {
@@ -52,11 +52,11 @@ function closePopupHandler (evt) {
   }
 }
 
-function openPopup (popup) {
+const openPopup = (popup) => {
   popup.classList.add('popup_active');
   window.addEventListener('keyup', closePopupHandler);
 }
-function closePopup (popup) {
+const closePopup = (popup) => {
   popup.classList.remove('popup_active');
   window.removeEventListener('keyup', closePopupHandler);
 }
@@ -87,13 +87,11 @@ popupAddCard.addEventListener('submit', evt => {
   closePopup(popupAddCard);
 });
 
-function likeCard (card) {
+const likeCard = (card) => {
   card.querySelector('.card__like').classList.toggle('card__like_active');
 }
-function delCard (card) {
-  card.remove();
-}
-function openPopupImg (title, src) {
+
+const openPopupImg = (title, src) => {
   popupImgPic.src = src;
   popupImgPic.alt = title;
   popupImgCaption.textContent = title;
