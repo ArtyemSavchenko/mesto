@@ -1,0 +1,16 @@
+.popup__error {
+  font-family: 'Inter', 'Verdana', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  color: #f00;
+  margin-bottom: 13px;
+  min-height: 15px;
+  margin-bottom: 13px;
+  margin-top: 5px;
+  /* visibility: hidden; */
+}
+
+.popup__error:last-of-type {
+  margin-bottom: 31px;
+}
