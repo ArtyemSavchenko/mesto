@@ -4,13 +4,12 @@
   font-size: 12px;
   line-height: 1.25;
   color: #f00;
-  margin-bottom: 13px;
-  min-height: 15px;
-  margin-bottom: 13px;
+  min-height: 30px;
+  margin-bottom: 0px;
   margin-top: 5px;
   visibility: hidden;
 }
 
-.popup__error:last-of-type {
-  margin-bottom: 31px;
+.popup__input-error:last-of-type {
+  margin-bottom: 17px;
 }

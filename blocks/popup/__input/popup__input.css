@@ -7,6 +7,7 @@
   border-bottom: 1px solid #ccc;
   padding: 0 0 13px;
   outline: none;
+  box-sizing: border-box;
 }
 
 .popup__input:focus {
