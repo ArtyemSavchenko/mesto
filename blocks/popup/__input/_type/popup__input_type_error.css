@@ -1,7 +1,7 @@
-.popup__input_type-error {
+.popup__input_type_error {
   border-bottom: 1px solid #f00;
 }
 
-.popup__input_type-error:focus {
+.popup__input_type_error:focus {
   border-bottom: 1px solid #f00;
 }

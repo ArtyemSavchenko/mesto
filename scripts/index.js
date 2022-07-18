@@ -52,13 +52,24 @@ const closePopupHandler = (evt) => {
   }
 }
 
+const clearValidationErrors = formEl => {
+  const inputList = Array.from(formEl.querySelectorAll('.popup__input'));
+  inputList.forEach(inputEl => hideInputError(formEl, inputEl, 'popup__input_type_error', 'popup__input-error_active'));
+}
+
 const openPopup = (popup) => {
-  popup.classList.add('popup_active');
+  if (popup.classList.contains('popup_type_form')) {
+    clearValidationErrors(popup);
+    const inputList = Array.from(popup.querySelectorAll('.popup__input'));
+    const submitBtnEl = popup.querySelector('.popup__submit-btn');
+    toggleBtnSubmitState(inputList, submitBtnEl);
+  }
   window.addEventListener('keyup', closePopupHandler);
+  popup.classList.add('popup_active');
 }
 const closePopup = (popup) => {
-  popup.classList.remove('popup_active');
   window.removeEventListener('keyup', closePopupHandler);
+  popup.classList.remove('popup_active');
 }
 
 btnOpenProfile.addEventListener('click', () => {
