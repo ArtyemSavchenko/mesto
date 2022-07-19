@@ -34,14 +34,14 @@ const createCard = (title, src) => {
   return card;
 }
 
-const addNewCard = (card) => {
+const addNewCard = card => {
   sectionCards.prepend(card);
 }
-const delCard = (card) => {
+const delCard = card => {
   card.remove();
 }
 
-const closePopupHandler = (evt) => {
+const closePopupHandler = evt => {
   if (evt.key === 'Escape') {
     for (let i = 0; i < popups.length; i++) {
       if (popups[i].classList.contains('popup_active')) {
@@ -55,19 +55,15 @@ const closePopupHandler = (evt) => {
 const clearValidationErrors = formEl => {
   const inputList = Array.from(formEl.querySelectorAll('.popup__input'));
   inputList.forEach(inputEl => hideInputError(formEl, inputEl, 'popup__input_type_error', 'popup__input-error_active'));
+  const submitBtnEl = formEl.querySelector('.popup__submit-btn');
+  toggleBtnSubmitState(inputList, submitBtnEl);
 }
 
-const openPopup = (popup) => {
-  if (popup.classList.contains('popup_type_form')) {
-    clearValidationErrors(popup);
-    const inputList = Array.from(popup.querySelectorAll('.popup__input'));
-    const submitBtnEl = popup.querySelector('.popup__submit-btn');
-    toggleBtnSubmitState(inputList, submitBtnEl);
-  }
+const openPopup = popup => {
   window.addEventListener('keyup', closePopupHandler);
   popup.classList.add('popup_active');
 }
-const closePopup = (popup) => {
+const closePopup = popup => {
   window.removeEventListener('keyup', closePopupHandler);
   popup.classList.remove('popup_active');
 }
@@ -75,6 +71,7 @@ const closePopup = (popup) => {
 btnOpenProfile.addEventListener('click', () => {
   popupProfileName.value = profileName.textContent;
   popupProfileAbout.value = profileAbout.textContent;
+  clearValidationErrors(popupProfile);
   openPopup(popupProfile);
 });
 
@@ -86,8 +83,8 @@ popupProfile.addEventListener('submit', evt => {
 });
 
 btnAddCard.addEventListener('click', () => {
-  popupCardName.value = '';
-  popupCardUrl.value = '';
+  popupAddCard.querySelector('.popup__form').reset();
+  clearValidationErrors(popupAddCard);
   openPopup(popupAddCard);
 });
 
@@ -98,7 +95,7 @@ popupAddCard.addEventListener('submit', evt => {
   closePopup(popupAddCard);
 });
 
-const likeCard = (card) => {
+const likeCard = card => {
   card.querySelector('.card__like').classList.toggle('card__like_active');
 }
 
