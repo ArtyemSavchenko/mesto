@@ -26,7 +26,7 @@ export class FormValidator {
     else return false;
   }
 
-  _toggleBtnSubmitState () {
+  _toggleBtnSubmitState() {
     if (this._inputList.some(inputEl => !inputEl.validity.valid))
       this._btnSubmitEl.disabled = true;
     else
@@ -38,16 +38,20 @@ export class FormValidator {
     this._toggleBtnSubmitState();
   }
 
-  enableValidation () {
+  _setEventsLiteners() {
     this._inputList.forEach(inputEl => {
       inputEl.addEventListener('input', () => {
         if (!this._validateInput(inputEl))
           this._showInputError(inputEl);
         else
-          this._hideInputError (inputEl);
+          this._hideInputError(inputEl);
         this._toggleBtnSubmitState(this._btnSubmitEl);
       });
     });
+  }
+
+  enableValidation() {
+    this._setEventsLiteners()
   }
 }
 

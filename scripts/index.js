@@ -17,6 +17,7 @@ const popupImgPic = popupImg.querySelector('.card-image__img');
 const popupImgCaption = popupImg.querySelector('.card-image__caption');
 const sectionCards = document.querySelector('.cards');
 const popups = document.querySelectorAll('.popup');
+const formAddCard = popupAddCard.querySelector('.popup__form');
 
 popups.forEach(popup => {
   popup.addEventListener('click', (evt) => {
@@ -69,15 +70,19 @@ popupProfile.addEventListener('submit', evt => {
 });
 
 btnAddCard.addEventListener('click', () => {
-  popupAddCard.querySelector('.popup__form').reset();
+  formAddCard.reset();
   popupAddCardValidator.clearValidationErrors();
   openPopup(popupAddCard);
 });
 
+const createCard = (title, src, isLike) => {
+  const newCard = new Card(title, src, isLike, '#card', openPopupImg);
+  return newCard.getCard();
+}
+
 popupAddCard.addEventListener('submit', evt => {
   evt.preventDefault();
-  const newCard = new Card(popupCardName.value, popupCardUrl.value, false, '#card', openPopupImg);
-  addNewCard(newCard.getCard());
+  addNewCard(createCard(popupCardName.value, popupCardUrl.value, false));
   closePopup(popupAddCard);
 });
 
@@ -89,6 +94,5 @@ const openPopupImg = (title, src) => {
 }
 
 samplesCards.forEach(el => {
-  const newCard = new Card(el.title, el.src, el.isLike, '#card', openPopupImg);
-  addNewCard(newCard.getCard());
+  addNewCard(createCard(el.title, el.src, el.isLike));
 });
