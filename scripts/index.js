@@ -20,9 +20,9 @@ const popups = document.querySelectorAll('.popup');
 const formAddCard = popupAddCard.querySelector('.popup__form');
 
 popups.forEach(popup => {
-  popup.addEventListener('click', (evt) => {
+  popup.addEventListener('click', evt => {
     if (evt.target === evt.currentTarget || evt.target.classList.contains('popup__close-btn'))
-    closePopup(popup);
+      closePopup(popup);
   });
 });
 
@@ -75,14 +75,14 @@ btnAddCard.addEventListener('click', () => {
   openPopup(popupAddCard);
 });
 
-const createCard = (title, src, isLike) => {
-  const newCard = new Card(title, src, isLike, '#card', openPopupImg);
+const createCard = card => {
+  const newCard = new Card(card, '#card', openPopupImg);
   return newCard.getCard();
 }
 
 popupAddCard.addEventListener('submit', evt => {
   evt.preventDefault();
-  addNewCard(createCard(popupCardName.value, popupCardUrl.value, false));
+  addNewCard(createCard({ title: popupCardName.value, src: popupCardUrl.value, isLike: false }));
   closePopup(popupAddCard);
 });
 
@@ -93,6 +93,6 @@ const openPopupImg = (title, src) => {
   openPopup(popupImg);
 }
 
-samplesCards.forEach(el => {
-  addNewCard(createCard(el.title, el.src, el.isLike));
+samplesCards.forEach(card => {
+  addNewCard(createCard(card));
 });

@@ -1,7 +1,7 @@
 export class Card {
-  constructor(title, imgSrc, isLike, templateSelector, callbackOpenPopup) {
+  constructor({ title, src, isLike }, templateSelector, callbackOpenPopup) {
     this._title = title;
-    this._imgSrc = imgSrc;
+    this._imgSrc = src;
     this._like = isLike;
     this._templateSelector = templateSelector;
     this._callBackOpenPopup = callbackOpenPopup;
@@ -48,7 +48,7 @@ export class Card {
     this._card.remove();
   }
 
-  _setEventsListeners () {
+  _setEventsListeners() {
     this._likeBtnEl.addEventListener('click', () => this._likeCard());
     this._delBtnEl.addEventListener('click', () => this._delCard());
     this._imgEl.addEventListener('click', () => this._callBackOpenPopup(this._title, this._imgSrc));
