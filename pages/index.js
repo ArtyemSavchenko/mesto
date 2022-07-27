@@ -1,98 +1,103 @@
-import { FormValidator, validationSettings } from '../components/FormValidator.js';
-import { Card } from '../components/Card.js';
-import { samplesCards } from '../utils/cards.js';
+import {
+  FormValidator,
+  validationSettings,
+} from "../components/FormValidator.js";
+import {
+  samplesCards,
+  sectionCardsSelector,
+  templateCardSelector,
+  userNameSelector,
+  userAboutSelector,
+  popupFormSelector,
+  popupProfileEditSelector,
+  popupAddCardSelector,
+  popupImgSelector,
+  btnOpenProfile,
+  btnAddCard,
+  popupAddCard,
+  popupProfile,
+  popupProfileName,
+  popupProfileAbout,
+  inputUserName,
+  inputUserAbout,
+  inputCardName,
+  inputCardUrl,
+} from "../utils/constants.js";
+import { Card } from "../components/Card.js";
+import { Section } from "../components/Section.js";
+import { UserInfo } from "../components/UserInfo.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
 
-const btnOpenProfile = document.querySelector('.profile__edit-btn');
-const popupProfile = document.querySelector('.popup_type_profile-edit');
-const popupProfileName = popupProfile.querySelector('.popup__input_type_name');
-const popupProfileAbout = popupProfile.querySelector('.popup__input_type_about');
-const profileName = document.querySelector('.profile__name');
-const profileAbout = document.querySelector('.profile__about');
-const btnAddCard = document.querySelector('.profile__add-card');
-const popupAddCard = document.querySelector('.popup_type_add-card');
-const popupCardName = document.querySelector('.popup__input_type_card-name');
-const popupCardUrl = document.querySelector('.popup__input_type_card-url');
-const popupImg = document.querySelector('.popup_type_image');
-const popupImgPic = popupImg.querySelector('.card-image__img');
-const popupImgCaption = popupImg.querySelector('.card-image__caption');
-const sectionCards = document.querySelector('.cards');
-const popups = document.querySelectorAll('.popup');
-const formAddCard = popupAddCard.querySelector('.popup__form');
+const userInfo = new UserInfo({ userNameSelector, userAboutSelector });
 
-popups.forEach(popup => {
-  popup.addEventListener('click', evt => {
-    if (evt.target === evt.currentTarget || evt.target.classList.contains('popup__close-btn'))
-      closePopup(popup);
-  });
-});
+const cardSection = new Section(
+  {
+    items: samplesCards,
+    renderer: (card) => {
+      const newCard = new Card(card, templateCardSelector, () => {
+        popupWithImage.open(card.title, card.src);
+      });
+      return newCard.getCard();
+    },
+  },
+  sectionCardsSelector
+);
+cardSection.renderItems();
 
-const popupProfileValidator = new FormValidator(popupProfile.querySelector('.popup__form'), validationSettings);
+const popupProfileValidator = new FormValidator(
+  popupProfile.querySelector(popupFormSelector),
+  validationSettings
+);
 popupProfileValidator.enableValidation();
-const popupAddCardValidator = new FormValidator(popupAddCard.querySelector('.popup__form'), validationSettings);
+
+const popupAddCardValidator = new FormValidator(
+  popupAddCard.querySelector(popupFormSelector),
+  validationSettings
+);
 popupAddCardValidator.enableValidation();
 
-const addNewCard = card => {
-  sectionCards.prepend(card);
-}
-
-const closePopupHandler = evt => {
-  if (evt.key === 'Escape') {
-    for (let i = 0; i < popups.length; i++) {
-      if (popups[i].classList.contains('popup_active')) {
-        closePopup(popups[i]);
-        return;
-      }
-    }
+const popupUserInfo = new PopupWithForm(
+  popupProfileEditSelector,
+  (data) => {
+    userInfo.setUserInfo({
+      userName: data[inputUserName],
+      userAbout: data[inputUserAbout],
+    });
+  },
+  () => {
+    const info = userInfo.getUserInfo();
+    popupProfileName.value = info.userName;
+    popupProfileAbout.value = info.userAbout;
+    popupProfileValidator.clearValidationErrors();
   }
-}
-
-const openPopup = popup => {
-  window.addEventListener('keyup', closePopupHandler);
-  popup.classList.add('popup_active');
-}
-const closePopup = popup => {
-  window.removeEventListener('keyup', closePopupHandler);
-  popup.classList.remove('popup_active');
-}
-
-btnOpenProfile.addEventListener('click', () => {
-  popupProfileName.value = profileName.textContent;
-  popupProfileAbout.value = profileAbout.textContent;
-  popupProfileValidator.clearValidationErrors();
-  openPopup(popupProfile);
+);
+popupUserInfo.setEventListeners();
+btnOpenProfile.addEventListener("click", () => {
+  popupUserInfo.open();
 });
 
-popupProfile.addEventListener('submit', evt => {
-  evt.preventDefault();
-  profileName.textContent = popupProfileName.value;
-  profileAbout.textContent = popupProfileAbout.value;
-  closePopup(popupProfile);
-});
+const popupWithImage = new PopupWithImage(popupImgSelector);
+popupWithImage.setEventListeners();
 
-btnAddCard.addEventListener('click', () => {
-  formAddCard.reset();
-  popupAddCardValidator.clearValidationErrors();
-  openPopup(popupAddCard);
-});
-
-const createCard = card => {
-  const newCard = new Card(card, '#card', openPopupImg);
-  return newCard.getCard();
-}
-
-popupAddCard.addEventListener('submit', evt => {
-  evt.preventDefault();
-  addNewCard(createCard({ title: popupCardName.value, src: popupCardUrl.value, isLike: false }));
-  closePopup(popupAddCard);
-});
-
-const openPopupImg = (title, src) => {
-  popupImgPic.src = src;
-  popupImgPic.alt = title;
-  popupImgCaption.textContent = title;
-  openPopup(popupImg);
-}
-
-samplesCards.forEach(card => {
-  addNewCard(createCard(card));
+const popupImg = new PopupWithForm(
+  popupAddCardSelector,
+  (data) => {
+    const card = {
+      title: data[inputCardName],
+      src: data[inputCardUrl],
+      isLike: false,
+    };
+    const newCard = new Card(card, templateCardSelector, () => {
+      popupWithImage.open(card.title, card.src);
+    });
+    cardSection.addItem(newCard.getCard());
+  },
+  () => {
+    popupAddCardValidator.clearValidationErrors();
+  }
+);
+popupImg.setEventListeners();
+btnAddCard.addEventListener("click", () => {
+  popupImg.open();
 });
