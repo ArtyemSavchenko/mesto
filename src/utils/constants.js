@@ -1,10 +1,17 @@
+import teberdaImage from '../images/card-teberda.webp';
+import ruskealaImage from '../images/card-ruskeala.webp';
+import kareliyaImage from '../images/card-kareliya.webp';
+import dombayImage from '../images/card-dombay.webp';
+import arkhyzImage from '../images/card-arkhyz.webp';
+import sovyImage from '../images/card-sovy.webp';
+
 export const samplesCards = [
-  { title: 'Теберда', src: './images/card-teberda.webp', isLike: false },
-  { title: 'Рускеала', src: './images/card-ruskeala.webp', isLike: false },
-  { title: 'Карелия', src: './images/card-kareliya.webp', isLike: false },
-  { title: 'Домбай', src: './images/card-dombay.webp', isLike: false },
-  { title: 'Архыз', src: './images/card-arkhyz.webp', isLike: false },
-  { title: 'Совы у моего дома', src: './images/card-sovy.webp', isLike: false }
+  { title: 'Теберда', src: teberdaImage, isLike: false },
+  { title: 'Рускеала', src: ruskealaImage, isLike: false },
+  { title: 'Карелия', src: kareliyaImage, isLike: false },
+  { title: 'Домбай', src: dombayImage, isLike: false },
+  { title: 'Архыз', src: arkhyzImage, isLike: false },
+  { title: 'Совы у моего дома', src: sovyImage, isLike: false }
 ]
 
 export const sectionCardsSelector = '.cards';
