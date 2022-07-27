@@ -33,14 +33,18 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 
 const userInfo = new UserInfo({ userNameSelector, userAboutSelector });
 
+const createCard = (item) => {
+  const newCard = new Card(item, templateCardSelector, () => {
+    popupWithImage.open(item.title, item.src);
+  });
+  return newCard.getCard();
+}
+
 const cardSection = new Section(
   {
     items: samplesCards,
     renderer: (card) => {
-      const newCard = new Card(card, templateCardSelector, () => {
-        popupWithImage.open(card.title, card.src);
-      });
-      return newCard.getCard();
+      return createCard(card);
     },
   },
   sectionCardsSelector
@@ -90,10 +94,7 @@ const popupImg = new PopupWithForm(
       src: data[inputCardUrl],
       isLike: false,
     };
-    const newCard = new Card(card, templateCardSelector, () => {
-      popupWithImage.open(card.title, card.src);
-    });
-    cardSection.addItem(newCard.getCard());
+    cardSection.addItem(createCard(card));
   },
   () => {
     popupAddCardValidator.clearValidationErrors();

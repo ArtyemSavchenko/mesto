@@ -1,22 +1,18 @@
-import {
-  activePopupClass,
-  closeBtnClass,
-} from '../utils/constants.js';
-
 export class Popup {
   constructor(popupSelector) {
     this._popupEl = document.querySelector(popupSelector);
-    this.activePopupClass = activePopupClass;
-    this.closeBtnClass = closeBtnClass;
+    this.activePopupClass = 'popup_active';
+    this.closeBtnClass = 'popup__close-btn';
+    this._handleEscClose = this._handleEscClose.bind(this);
   }
 
   open() {
-    window.addEventListener('keyup', this._handleEscClose.bind(this));
+    document.addEventListener('keyup', this._handleEscClose);
     this._popupEl.classList.add(this.activePopupClass);
   }
 
   close() {
-    window.removeEventListener('keyup', this._handleEscClose.bind(this));
+    document.removeEventListener('keyup', this._handleEscClose);
     this._popupEl.classList.remove(this.activePopupClass);
   }
 
